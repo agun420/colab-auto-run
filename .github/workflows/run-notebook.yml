@@ -1,16 +1,17 @@
-name: Run Notebook Daily
+name: Run Notebook Every 3 Hours Starting 9:30 AM EST
 
 on:
   schedule:
-    - cron: '0 12 * * *'   # Run daily at 12:00 UTC
-  workflow_dispatch:        # Allow manual run
+    - cron: '30 13,16,19,22,1,4,7,10 * * *'
+  workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -19,6 +20,7 @@ jobs:
 
       - name: Install libraries
         run: |
+          pip install --upgrade pip
           pip install notebook nbconvert papermill
 
       - name: Run notebook
