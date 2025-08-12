@@ -1,0 +1,13 @@
+yfinance
+pandas
+numpy
+matplotlib
+seaborn
+requests
+python-telegram-bot
+schedule
+alpha_vantage
+finnhub-python
+pandas-ta
+scikit-learn
+lxml
